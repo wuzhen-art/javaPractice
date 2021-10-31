@@ -1,0 +1,40 @@
+CREATE DATABASE IF NOT EXISTS `mall`;
+use `mall`;
+
+CREATE TABLE IF NOT EXISTS `user` (
+    `id` int(10) NOT NULL AUTO_INCREMENT,
+    `username` varchar(30) NOT NULL,
+    `password` varchar(16) NOT NULL,
+    `phone` varchar(15) NOT NULL,
+    `mail` varchar(30) NOT NULL,
+    `identity` varchar(30) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1;
+
+CREATE TABLE IF NOT EXISTS `sku` (
+    `id` int(10) NOT NULL AUTO_INCREMENT,
+    `name` varchar(30) NOT NULL,
+    `sku_info` varchar(1500),
+    `sku_price` decimal(10,2) NOT NULL,
+    `sku_status` int(1) NOT NULL,
+    `store_id` int(10) NOT NULL,
+    PRIMARY KEY (`id`),
+) ENGINE=InnoDB AUTO_INCREMENT=1;
+
+
+CREATE TABLE IF NOT EXISTS `order` (
+    `id` int(10) NOT NULL AUTO_INCREMENT,
+    `status` tinyInt(1) NOT NULL,
+    `sku_list` varchar(2500) NOT NULL,
+    `price` decimal(10,2) NOT NULL,
+    `create_time` int(11) NOT NULL,
+    `user_id` int(10) NOT NULL,
+    PRIMARY KEY (`id`),
+) ENGINE=InnoDB AUTO_INCREMENT=1;
+
+CREATE TABLE IF NOT EXISTS `store` (
+    `id` int(10) NOT NULL AUTO_INCREMENT,
+    `name` varchar(16) NOT NULL,
+    `info` varchar(2000),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1;
